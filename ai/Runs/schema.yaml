@@ -1,0 +1,49 @@
+required:
+  - id
+  - date
+  - repo_sha
+  - agent
+  - model
+  - task
+  - steps
+  - result
+  - links
+  - evidence
+properties:
+  id: { type: string }
+  date: { type: string, format: date }
+  repo_sha: { type: string, description: "git rev-parse HEAD" }
+  agent: { type: string }
+  model: { type: string }
+  tool_versions: { type: object }
+  prompt_digest: { type: string }
+  seed: { type: integer, nullable: true }
+  cost:
+    type: object
+    properties:
+      tokens_in: {type: number}
+      tokens_out: {type: number}
+      runtime_sec: {type: number}
+  task: { type: string }
+  inputs: { type: object }
+  steps: { type: array, items: { type: string } }
+  outputs: { type: object }
+  result: { type: string, enum: ["pass","fail","partial"] }
+  error_type: { type: string, nullable: true }
+  refs:
+    type: object
+    properties:
+      adrs: { type: array, items: { type: string } }
+      playbooks: { type: array, items: { type: string } }
+      policies: { type: array, items: { type: string } }
+  evidence:
+    type: object
+    properties:
+      tests: { type: array, items: { type: string } }
+      screenshots: { type: array, items: { type: string } }
+      logs: { type: array, items: { type: string } }
+  links:
+    type: object
+    properties:
+      pr: { type: string }
+      issues: { type: array, items: { type: string } }
