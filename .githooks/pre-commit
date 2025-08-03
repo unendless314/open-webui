@@ -1,0 +1,4 @@
+#!/bin/sh
+CHANGED=$(git diff --cached --name-only --diff-filter=ACM | grep '^ai/Runs/.*\.yaml$' || true)
+[ -z "$CHANGED" ] && exit 0
+python scripts/validate_runs.py $CHANGED

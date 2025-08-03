@@ -1,10 +1,34 @@
+id: run-2025-08-03-001
+date: 2025-08-03
 repo_sha: 54d283b6ccac1136bff283a72bed8a4769a1c5c0
+agent: open-webui
+model: gpt-4o
 prompt_digest: 93186f35997dd73ceb4a821014aae725ccc1686ac35b9dd4afeb974b8ec655f9
 tool_versions:
   node: v22.17.1
   python: 3.12.10
-cost: 0
+cost:
+  tokens_in: 0
+  tokens_out: 0
+  runtime_sec: 0
+task: Add run template and validation script for Run YAMLs
+steps:
+  - Created ai/Runs/TEMPLATE.yaml covering required fields
+  - Extended existing run file with metadata
+  - Added Python validator and pre-commit hook
+result: pass
 refs:
   playbooks:
     - ai/Playbooks/role-prompts.md
   adrs: []
+  policies: []
+links:
+  pr: ""
+  issues: []
+evidence:
+  tests:
+    - 'npm run lint'
+    - 'npm run typecheck'
+    - 'npm test -- --ci'
+  screenshots: []
+  logs: []
