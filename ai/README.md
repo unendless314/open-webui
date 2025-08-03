@@ -3,7 +3,7 @@
 ## Quick Paths
 | Goal | Read First | Then | Output |
 |---|---|---|---|
-| Solve one-off task | /ai/Playbooks | follow steps | /ai/Runs/<run>.yaml |
+| Solve one-off task | /ai/Playbooks/0000-INDEX.md | follow steps | /ai/Runs/<run>.yaml |
 | Establish long-term rule | /ai/ADR/0000-INDEX.md | draft new ADR | ADR PR |
 | Unsure if worth ADR | /ai/Lessons/LESSONS.md | record lesson | evaluate later |
 
