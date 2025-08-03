@@ -1,0 +1,35 @@
+id: run-2025-08-03-002
+date: 2025-08-03
+repo_sha: a52a88be873d6a39107129c12caca5fcfe37972b
+agent: open-webui
+model: gpt-4o
+prompt_digest: a8667e534e402259faf0f619f66e5a463aab7a1a6a428571edc311a3d19f40c1
+tool_versions:
+  node: v20.19.4
+  npm: "11.4.2"
+  python: "3.12.10"
+cost:
+  tokens_in: 0
+  tokens_out: 0
+  runtime_sec: 0
+task: Remove outdated temporary TODO notes file
+steps:
+  - Verified all TODO items covered by existing ADRs, Playbooks, or Policies
+  - Deleted ai/TEMP-NOTES.md since no pending tasks remained
+result: pass
+refs:
+  playbooks:
+    - ai/Playbooks/role-prompts.md
+  policies:
+    - ai/Policies/GUARDRAILS.md
+  adrs: []
+links:
+  pr: ""
+  issues: []
+evidence:
+  tests:
+    - "npm run lint"
+    - "npm run typecheck"
+    - "npm test -- --ci"
+  screenshots: []
+  logs: []
