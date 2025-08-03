@@ -56,7 +56,7 @@
 
 ## 9. Common References
 - **Glossary**: `/ai/GLOSSARY.md`.
-- **Prompts**: `/ai/Prompts/common.md` + role-specific files.
+- **Prompts**: `/ai/Prompts/common.md` + role-specific files (`builder.md`, `reviewer.md`, `tester.md`).
 - **Playbooks**: versioned headers with compatibility matrix and changelog.
 
 ---

@@ -1,0 +1,10 @@
+repo_sha: 54d283b6ccac1136bff283a72bed8a4769a1c5c0
+prompt_digest: 93186f35997dd73ceb4a821014aae725ccc1686ac35b9dd4afeb974b8ec655f9
+tool_versions:
+  node: v22.17.1
+  python: 3.12.10
+cost: 0
+refs:
+  playbooks:
+    - ai/Playbooks/role-prompts.md
+  adrs: []
