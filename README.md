@@ -23,6 +23,10 @@ Passionate about open-source AI? [Join our team →](https://careers.openwebui.c
 
 For more information, be sure to check out our [Open WebUI Documentation](https://docs.openwebui.com/).
 
+## AI-to-AI Collaboration
+
+Contributors should review [AGENTS.md](./AGENTS.md) and [ai/README.md](./ai/README.md) before making changes. These documents define the structured AI-to-AI handoff that keeps multi-agent work consistent.
+
 ## Key Features of Open WebUI ⭐
 
 - 🚀 **Effortless Setup**: Install seamlessly using Docker or Kubernetes (kubectl, kustomize or helm) for a hassle-free experience with support for both `:ollama` and `:cuda` tagged images.

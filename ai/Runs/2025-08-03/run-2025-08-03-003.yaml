@@ -1,0 +1,35 @@
+id: run-2025-08-03-003
+date: 2025-08-03
+repo_sha: cc74c8bbf414f268d40c7de26001608333b9cc15
+agent: open-webui
+model: gpt-4o
+prompt_digest: fad9cbfd0fa219307ea58e8c9100343d6dff5e78e93e0f0aa5631f5665086a89
+tool_versions:
+  node: v20.19.4
+  npm: "11.4.2"
+  python: "3.12.10"
+cost:
+  tokens_in: 0
+  tokens_out: 0
+  runtime_sec: 0
+task: Add README section linking AGENTS.md and ai/README.md
+steps:
+  - Added README section referencing AGENTS.md and ai/README.md
+  - Ran npm run lint, npm run typecheck, npm test -- --ci
+result: pass
+refs:
+  playbooks:
+    - ai/Playbooks/role-prompts.md
+  policies:
+    - ai/Policies/GUARDRAILS.md
+  adrs: []
+links:
+  pr: ""
+  issues: []
+evidence:
+  tests:
+    - "npm run lint"
+    - "npm run typecheck"
+    - "npm test -- --ci"
+  screenshots: []
+  logs: []
