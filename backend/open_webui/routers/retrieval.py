@@ -1936,6 +1936,14 @@ async def process_web_search(
         urls = list(dict.fromkeys(urls))
         log.debug(f"urls: {urls}")
 
+    except HTTPException as e:
+        if e.status_code == status.HTTP_429_TOO_MANY_REQUESTS:
+            raise e
+        log.exception(e)
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=ERROR_MESSAGES.WEB_SEARCH_ERROR(e.detail),
+        )
     except Exception as e:
         log.exception(e)
 
