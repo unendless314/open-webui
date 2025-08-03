@@ -2,6 +2,8 @@ import logging
 from typing import Optional
 
 import requests
+from fastapi import HTTPException
+
 from open_webui.retrieval.web.main import SearchResult, get_filtered_results
 from open_webui.env import SRC_LOG_LEVELS
 
@@ -26,8 +28,19 @@ def search_brave(
     }
     params = {"q": query, "count": count}
 
-    response = requests.get(url, headers=headers, params=params)
-    response.raise_for_status()
+    try:
+        response = requests.get(url, headers=headers, params=params)
+        response.raise_for_status()
+    except requests.HTTPError as e:
+        if e.response is not None and e.response.status_code == 429:
+            raise HTTPException(
+                status_code=429, detail="Brave API rate limit exceeded"
+            ) from e
+
+        status_code = e.response.status_code if e.response else 500
+        raise HTTPException(
+            status_code=status_code, detail=f"Brave API request failed: {e}"
+        ) from e
 
     json_response = response.json()
     results = json_response.get("web", {}).get("results", [])
