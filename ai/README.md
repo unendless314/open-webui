@@ -21,3 +21,7 @@ G --> H{Result stable?}
 H -- Yes --> I[Promote to Playbook or Accept ADR]
 H -- No --> J[Keep in Lessons / observe]
 ```
+
+## Run Schemas
+- **Standard (`ai/Runs/schema.yaml`)** – use for production-ready or collaborative tasks. Requires full metadata such as agent, model, steps, evidence, and links.
+- **Lite (`ai/Runs/schema-lite.yaml`)** – use for quick experiments or internal notes where only `id`, `date`, `repo_sha`, `task`, and `result` are mandatory.
