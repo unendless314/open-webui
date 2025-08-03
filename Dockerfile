@@ -33,8 +33,10 @@ COPY package.json package-lock.json ./
 RUN npm ci --force
 
 COPY . .
+# ENV NODE_OPTIONS=--max-old-space-size=4096 # 只有在 Build 時記憶體 OOM 執行
 ENV APP_BUILD_HASH=${BUILD_HASH}
 RUN npm run build
+
 
 ######## WebUI backend ########
 FROM python:3.11-slim-bookworm AS base
