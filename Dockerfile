@@ -32,8 +32,9 @@ RUN apk add --no-cache git
 COPY package.json package-lock.json ./
 RUN npm ci --force
 
+# 只有在 Build 時記憶體 OOM 執行
 COPY . .
-# ENV NODE_OPTIONS=--max-old-space-size=4096 # 只有在 Build 時記憶體 OOM 執行
+# ENV NODE_OPTIONS=--max-old-space-size=4096
 ENV APP_BUILD_HASH=${BUILD_HASH}
 RUN npm run build
 
