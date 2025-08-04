@@ -25,3 +25,11 @@ H -- No --> J[Keep in Lessons / observe]
 ## Run Schemas
 - **Standard (`ai/Runs/schema.yaml`)** – use for production-ready or collaborative tasks. Requires full metadata such as agent, model, steps, evidence, and links.
 - **Lite (`ai/Runs/schema-lite.yaml`)** – use for quick experiments or internal notes where only `id`, `date`, `repo_sha`, `task`, and `result` are mandatory.
+
+## Lite Workflow
+Use this path when experimenting or jotting quick internal notes.
+
+1. Check existing Playbooks and ADRs for relevant guidance.
+2. Perform the task.
+3. Log the outcome in `/ai/Runs/<date>/run-*.yaml` using [`schema-lite.yaml`](Runs/schema-lite.yaml).
+4. Optional: if the insight becomes repeatable or impactful, promote it to an ADR.

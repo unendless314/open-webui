@@ -6,7 +6,7 @@
 - **Secrets/PII**: never print, store, or transmit. Redact in logs and PRs.
 
 ## 1. Start Here
-- Read `/ai/README.md` for navigation and the decision flow.
+- Read `/ai/README.md` for navigation and the decision flow. For quick experiments or internal notes, use the [Lite Workflow](ai/README.md#lite-workflow).
 - Search `/ai/ADR/0000-INDEX.md` and `/ai/Playbooks/` before coding. Prefer an existing ADR/Playbook over ad-hoc changes.
 
 ## 2. Environment & Reproducibility
