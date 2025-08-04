@@ -37,6 +37,7 @@ We've noticed an uptick in issues not directly related to Open WebUI but rather 
 Looking to contribute? Great! Here's how you can help:
 
 ### 🛠 Pull Requests
+To coordinate effectively, review our AI workspace guidelines. Start with [../ai/README.md](../ai/README.md) to understand the folder's workflow, and read [../ai/AGENTS.md](../ai/AGENTS.md) along with [../ai/Policies/GUARDRAILS.md](../ai/Policies/GUARDRAILS.md) before submitting a PR.
 
 We welcome pull requests. Before submitting one, please:
 
