@@ -4,23 +4,33 @@ This guide explains how to refresh a local Open WebUI environment when not using
 
 ## Refresh the Running Container
 
-1. Pull the latest code:
-   ```bash
-   git pull
-   ```
-2. Restart the app container:
-   ```bash
-   docker compose restart open-webui
-   ```
+The application source is baked into the Docker image. A `git pull` updates the host files but **does not** update a running container. After pulling new code, rebuild the image and recreate the container:
+
+```bash
+git pull
+docker compose build open-webui
+docker compose up -d --no-deps --force-recreate open-webui
+# or
+docker compose up -d --build open-webui
+```
 
 ## Rebuild When Dependencies Change
 
-If `package.json`, `pyproject.toml`, or other dependencies change, rebuild the image before restarting:
+If `package.json`, `pyproject.toml`, or other dependencies change, the above rebuild step is required before recreating the container.
 
-```bash
-docker compose build open-webui
-docker compose restart open-webui
+## Optional: Live Code with Bind Mounts
+
+For immediate code reflection without rebuilding, create a `docker-compose.override.yml` with a bind mount:
+
+```yaml
+# docker-compose.override.yml
+services:
+  open-webui:
+    volumes:
+      - .:/app
 ```
+
+`docker compose up -d open-webui` will then use the local source directly.
 
 ## Guardrails
 
