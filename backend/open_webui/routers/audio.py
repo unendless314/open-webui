@@ -16,6 +16,13 @@ import aiofiles
 import requests
 import mimetypes
 from urllib.parse import quote
+from tenacity import (
+    retry,
+    stop_after_attempt,
+    wait_exponential,
+    before_sleep_log,
+    retry_if_exception_type,
+)
 
 from fastapi import (
     Depends,
@@ -1111,16 +1118,27 @@ def get_elevenlabs_voices(api_key: str) -> dict:
     AUDIO_TTS_MODEL=eleven_multilingual_v2
     """
 
-    try:
-        # TODO: Add retries
+    @retry(
+        reraise=True,
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(min=1, max=10),
+        retry=retry_if_exception_type(requests.RequestException),
+        before_sleep=before_sleep_log(log, logging.WARNING),
+    )
+    def _fetch_voices():
         response = requests.get(
             "https://api.elevenlabs.io/v1/voices",
             headers={
                 "xi-api-key": api_key,
                 "Content-Type": "application/json",
             },
+            timeout=10,
         )
         response.raise_for_status()
+        return response
+
+    try:
+        response = _fetch_voices()
         voices_data = response.json()
 
         voices = {}
