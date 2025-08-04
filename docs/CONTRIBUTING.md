@@ -32,6 +32,10 @@ We've noticed an uptick in issues not directly related to Open WebUI but rather 
 
 - **Advanced Configurations**: Setting up reverse proxies for HTTPS and managing Docker deployments requires foundational knowledge. There are numerous online resources available to learn these skills. Ensuring you have this knowledge will greatly enhance your experience with Open WebUI and similar projects.
 
+### 🔁 Manual Docker Refresh
+
+If you're developing without file-watch tools, follow [../contrib/dev-watch/README.md](../contrib/dev-watch/README.md) for steps to pull changes, rebuild images, and restart containers safely.
+
 ## 💡 Contributing
 
 Looking to contribute? Great! Here's how you can help:
