@@ -73,3 +73,15 @@ npm run test:frontend
 ```
 
 Backend tests are likely run using `pytest`, but a specific command is not immediately apparent from the provided files.
+
+## Work Logs and Lessons Learned
+
+When the user gives a command such as "record the lessons learned from this session," the AI assistant will initiate the logging process. This process involves:
+
+1.  **Summarizing the Conversation**: The assistant will distill the key points from the current working session, including:
+    *   **Initial Goal**: The original objective of the task.
+    *   **Exploration Process**: The methods attempted and any challenges encountered (e.g., misunderstandings of the system architecture, technical limitations).
+    *   **Key Discoveries**: The final understanding of how the system works.
+    *   **Decisions Made**: The final choices made between different solutions (e.g., choosing between implementation plans) and the reasoning behind them.
+
+2.  **Writing to a Log File**: The summary will be written to a new log file. A `logs` directory will be created in the project root if it doesn't exist. The log file will be named using the format `lessons_learned_YYYY-MM-DD_HH-MM-SS.md` to ensure uniqueness.
