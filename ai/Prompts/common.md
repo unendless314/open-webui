@@ -1,3 +1,0 @@
-- Always search `/ai/ADR/0000-INDEX.md` and `/ai/Playbooks` before implementation.
-- Cite the exact ADR or Playbook in `/ai/Runs` refs.
-- Refuse actions that violate `/ai/Policies/GUARDRAILS.md`.
